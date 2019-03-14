@@ -10,16 +10,11 @@ function factorial(num:number):number {
     return result;
 }
 
-function multiply (...args):number {
+function multiply (...args: Array<number>):number {
     if (args.length === 0) return 0;
 
-    let result:number = 1;
-
-    for (let i:number = 0; i < args.length; i++) {
-        result *= args[i];
-    }
-
-    return result;
+    
+    return args.reduce((mult, i) => mult *= i);
 }
 
 function reverseStr(str:string):string {
@@ -30,7 +25,7 @@ interface Admin {
     name: string;
     email: string;
     password: string;
-    type: string;
+    type?: string;
 }
 
 function main():void {

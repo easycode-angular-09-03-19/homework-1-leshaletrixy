@@ -8,9 +8,8 @@ abstract class Car {
         this.fuel = fuel;
     }
 
-    public abstract drive(newMileage);
-    public abstract refuel();
-    //public abstract get stateMil();
+    public abstract drive(newMileage): void;
+    public abstract refuel(): void;
 
 }
 
@@ -19,6 +18,8 @@ class Audi extends Car {
         super(mileage, fuel);
     }   
     public drive(newMileage: number): void {
+        if (typeof newMileage !== 'number') return;
+        
         if (this.fuel <= 0) {
             console.log('more fuel!');
         } else {
@@ -33,12 +34,12 @@ class Audi extends Car {
     public state(): void {
          console.log('км = ' + this.mileage + ' ' + 'бенз = ' + this.fuel);
     }
-    // public get stateMil(): number { 
-    //     return this.mileage;
-    // }
+
+    public get stateMil(): number { 
+        return this.mileage;
+    }
+
 }
-
-
 
 const audirs5: Audi = new Audi(0, 10);
 
@@ -49,6 +50,8 @@ for (let i: number = 0; i < 11; i++) {
 }
 audirs5.refuel();
 audirs5.state();
+console.log('get -> ' + audirs5.stateMil);
+
 
 
 

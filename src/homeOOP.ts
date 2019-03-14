@@ -19,7 +19,7 @@ class Audi extends Car {
     }   
     public drive(newMileage: number): void {
         if (typeof newMileage !== 'number') return;
-        
+
         if (this.fuel <= 0) {
             console.log('more fuel!');
         } else {
